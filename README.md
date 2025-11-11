@@ -1,10 +1,10 @@
 # Janji
 Saya Naufal Zahid dengan NIM 2405787 mengerjakan TP 7 dalam mata kuliah Desain dan Pemrograman Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 
-# 🧾 Sistem Manajemen Peran — PHP Native (OOP + Prepared Statement)
+# 🧙‍♂️ Sistem Manajemen Asrama Hogwarts — PHP Native (OOP + Prepared Statement)
 
-Proyek ini merupakan implementasi **website berbasis PHP Native** dengan penerapan konsep **Object-Oriented Programming (OOP)** dan penggunaan **Prepared Statement** untuk seluruh interaksi database.  
-Aplikasi ini dirancang sebagai sistem sederhana untuk **mengelola data Peran, Film, dan Relasi Pemeran Film**, mencakup fitur **CRUD (Create, Read, Update, Delete)** untuk setiap entitas.
+Proyek ini merupakan implementasi website berbasis PHP Native dengan penerapan konsep Object-Oriented Programming (OOP) serta penggunaan Prepared Statement untuk seluruh interaksi dengan database.
+Aplikasi ini dirancang untuk mengelola data Asrama, Peran, dan Anggota Hogwarts, dengan fitur utama CRUD (Create, Read, Update, Delete) di setiap entitas.
 
 ---
 
@@ -19,14 +19,15 @@ Aplikasi ini dirancang sebagai sistem sederhana untuk **mengelola data Peran, Fi
 
 ---
 
-## 🎬 Tema Website: Sistem Manajemen Peran Film
+## 🎬 Tema Website: Sistem Manajemen Asrama Hogwarts
 
-Website ini digunakan untuk mencatat dan menampilkan daftar **film**, **peran (aktor/aktris)**, serta **hubungan antara keduanya** melalui tabel `detail_peran`.
+Website ini digunakan untuk mencatat dan menampilkan data asrama di Hogwarts, peran anggota, serta hubungan antar data.
+Setiap anggota memiliki peran tertentu dan tergabung dalam satu asrama.
 
 Contoh penggunaan:
-- Admin dapat menambahkan film baru beserta detail pemainnya.  
-- Data peran dan film dapat diubah atau dihapus.  
-- Setiap peran dikaitkan ke film melalui *foreign key* `id_film`.
+- Admin dapat menambahkan data asrama baru dan kepala asramanya.
+- Admin dapat menambahkan anggota baru dan menentukan asrama serta perannya.
+- Data asrama, peran, maupun anggota dapat diubah dan dihapus dengan mudah.
 
 ---
 
@@ -36,28 +37,26 @@ Contoh penggunaan:
 
 | Kolom | Tipe | Keterangan |
 | :--- | :--- | :--- |
-| `id_film` | INT (PK, AUTO_INCREMENT) | ID unik untuk film |
-| `judul` | VARCHAR(100) | Judul film |
-| `genre` | VARCHAR(50) | Jenis/genre film |
-| `tahun_rilis` | INT | Tahun rilis film |
+| `id_asrama` | INT (PK, AUTO_INCREMENT) | ID unik untuk asrama |
+| `nama_asrama` | VARCHAR(100) | Nama asrama (misal: Gryffindor, Slytherin) |
+| `kepala_asrama` | VARCHAR(100) | Nama kepala asrama |
 
 ### 2️⃣ Tabel `peran`
 
 | Kolom | Tipe | Keterangan |
 | :--- | :--- | :--- |
 | `id_peran` | INT (PK, AUTO_INCREMENT) | ID unik untuk peran |
-| `nama` | VARCHAR(100) | Nama aktor/aktris |
-| `usia` | INT | Usia aktor/aktris |
-| `negara_asal` | VARCHAR(50) | Negara asal aktor/aktris |
+| `nama` | VARCHAR(100) | Nama peran (misal: Prefect, Ketua Asrama, Murid biasa) |
 
-### 3️⃣ Tabel `detail_peran`
+### 3️⃣ Tabel `anggota`
 
 | Kolom | Tipe | Keterangan |
 | :--- | :--- | :--- |
-| `id_detail` | INT (PK, AUTO_INCREMENT) | ID unik untuk detail relasi |
-| `id_film` | INT (FK → film.id_film) | Relasi ke film |
-| `id_peran` | INT (FK → peran.id_peran) | Relasi ke peran |
-| `nama_karakter` | VARCHAR(100) | Nama karakter dalam film |
+| `id_anggota` | INT (PK, AUTO_INCREMENT) | ID unik untuk anggota |
+| `nama` | VARCHAR(100) | Nama anggota Hogwarts |
+| `id_asrama` | INT (FK → asrama.id_asrama) | Relasi ke tabel asrama |
+| `id_peran` | INT (FK → peran.id_peran) | Relasi ke tabel peran |
+| `tanggal_masuk` | DATE | Tanggal masuk ke Hogwarts |
 
 ---
 
@@ -65,11 +64,32 @@ Contoh penggunaan:
 
 | Entitas | Fitur | Deskripsi |
 | :--- | :--- | :--- |
-| **Film** | Create, Read, Update, Delete | Kelola data film seperti judul, genre, dan tahun rilis. |
-| **Peran** | Create, Read, Update, Delete | Kelola data aktor/aktris. |
-| **Detail Peran** | Create, Read, Update, Delete | Hubungkan aktor dengan film dan karakter yang diperankan. |
+| **Asrama** | Create, Read, Update, Delete | Kelola data nama asrama dan kepala asrama. |
+| **Peran** | Create, Read, Update, Delete | Kelola daftar peran di Hogwarts. |
+| **Anggota** | Create, Read, Update, Delete | Kelola data anggota dan relasinya ke asrama serta peran. |
 
 ---
 
 ## 🏗️ Struktur Folder Proyek
 
+```bash
+  TP7/
+  ├── Class/
+  │   ├── Asrama.php
+  │   ├── Anggota.php
+  │   └── Peran.php
+  │
+  ├── config/
+  │   └── DB.php
+  │
+  ├── database/
+  │   └── db_harrypotter.sql
+  │
+  ├── view/
+  │   ├── asrama.php
+  │   ├── anggota.php
+  │   └── peran.php
+  │
+  ├── index.php
+  └── style.css
+```
