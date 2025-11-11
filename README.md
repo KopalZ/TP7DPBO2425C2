@@ -31,7 +31,7 @@ Contoh penggunaan:
 
 ## 🗃️ Struktur Database
 
-### 1️⃣ Tabel `film`
+### 1️⃣ Tabel `asrama`
 
 | Kolom | Tipe | Keterangan |
 | :--- | :--- | :--- |
@@ -78,7 +78,7 @@ Contoh penggunaan:
   │   └── Peran.php
   │
   ├── config/
-  │   └── DB.php
+  │   └── db.php
   │
   ├── database/
   │   └── db_harrypotter.sql
@@ -131,3 +131,4 @@ Contoh penggunaan:
 ---
 
 ## 🎥 Dokumentasi
+https://github.com/user-attachments/assets/a406ee4b-3a6b-4340-82f8-9423c9070fb2
