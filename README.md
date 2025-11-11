@@ -118,3 +118,16 @@ Contoh penggunaan:
 - Mengatur tampilan keseluruhan website agar lebih rapi dan konsisten antar halaman.
 
 ---
+
+## 💻 Cara Menjalankan
+1. Import file `db_harrypotter.sql` ke dalam **phpMyAdmin**.
+2. Pastikan koneksi database di `config/db.php` sesuai dengan konfigurasi lokal (username, password, dan nama database).
+3. Jalankan aplikasi di browser dengan membuka:
+    ```bash
+    http://localhost/TP7/index.php
+    ```
+4. Navigasi ke tiap halaman (Asrama, Peran, Anggota) melalui menu yang tersedia di halaman utama.
+
+---
+
+## 🎥 Dokumentasi
