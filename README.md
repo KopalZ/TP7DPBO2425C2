@@ -12,10 +12,8 @@ Aplikasi ini dirancang untuk mengelola data Asrama, Peran, dan Anggota Hogwarts,
 
 | Kategori | Detail |
 | :--- | :--- |
-| **Nama Repo** | `TP7DPBO2425Cxxxx` |
-| **Teknologi** | PHP Native (OOP), MySQL (Prepared Statement), HTML, CSS |
-| **Struktur Aplikasi** | MVC sederhana (Model - View - Controller) |
-| **Database** | `db_peran` (3 tabel: film, peran, detail_peran) |
+| **Nama Repo** | `TP7DPBO2425C2` |
+| **Database** | `db_harrypotter` (3 tabel: film, peran, detail_peran) |
 
 ---
 
@@ -93,3 +91,30 @@ Contoh penggunaan:
   ├── index.php
   └── style.css
 ```
+
+---
+
+## Flow / Alur Program
+### 1. index.php
+- Berfungsi sebagai halaman utama untuk navigasi antar tabel.
+- Menggunakan parameter `page` pada URL (`?page=asrama`, `?page=peran`, `?page=anggota`) untuk menampilkan view yang sesuai.
+
+### 2. class
+- Berisi representasi tiap entitas database dalam bentuk class OOP PHP.
+- Masing-masing memiliki fungsi `getAllData()`, `addData()`, `updateData()`, dan `deleteData()`.
+  
+### 3. config/db.php
+- Mengatur koneksi ke database MySQL.
+- Koneksi digunakan oleh seluruh class untuk operasi CRUD.
+
+### 4. view/
+- Menyediakan tampilan (form & tabel) untuk tiap tabel:
+  - `asrama.php` untuk data asrama
+  - `peran.php` untuk data peran
+  - `anggota.php` untuk data anggota (relasi antar tabel ditampilkan dalam bentuk join)
+- Data ditampilkan dalam bentuk tabel dengan nomor urut dinamis (bukan ID database).
+
+### 5. style.css
+- Mengatur tampilan keseluruhan website agar lebih rapi dan konsisten antar halaman.
+
+---
